@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voting Ketua Umum ISOI</title>
@@ -36,7 +37,7 @@
         }
     </style>
 </head>
-<body>
+<body class="container-fluid">
 
     <div class="container my-5">
         <!-- Title Section -->
@@ -46,7 +47,7 @@
 
         <!-- Poster Section -->
         <div class="text-center mb-5">
-            <img src="{{ asset('poster.jpg') }}" class="img-fluid rounded shadow" alt="Poster Voting" style="max-width: 600px;">
+            <img src="{{ asset('poster.jpg') }}" class="img-fluid rounded shadow" alt="Poster Voting">
         </div>
 
         <div class="row text-center g-4 mb-4">
