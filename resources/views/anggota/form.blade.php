@@ -1,75 +1,139 @@
-@extends('layouts.main')
-@section('title', 'Vote Ketua Umum')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="content-wrapper">
-  <div class="row">
-    <div class="col-md-12 grid-margin">
-      <div class="row">
-        <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-          <h3 class="font-weight-bold">Halaman Voting</h3>
-          <h6 class="font-weight-normal mb-0">Selamat datang {{ $data_anggota->nama }}. Suara anda sangat berharga untuk pemilihan ini.</h6>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Data Anggota Tercatat</h4>
-          <div class="table-responsive">
-            <table class="table table-hover display">
-              <tr>
-                <th>Nomor Anggota</th>
-                <td>:</td>
-                <td>{{ $data_anggota->no_anggota }}</td>
-              </tr>
-              <tr>
-                <th>Nama</th>
-                <td>:</td>
-                <td>{{ $data_anggota->nama }}</td>
-              </tr>
-              <tr>
-                <th>Asal Komda</th>
-                <td>:</td>
-                <td>{{ $data_anggota->asal_komda }}</td>
-              </tr>
-              <tr>
-                <th>Status Keaktifan</th>
-                <td>:</td>
-                <td><a class="btn btn-sm btn-inverse-{{ $data_anggota->status_keaktifan ? 'primary' : 'danger' }}">{{ $data_anggota->status_keaktifan ? 'Aktif' : 'Tidak Aktif' }}</a></td>
-              </tr>
-            </table>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Vote Ketua Umum</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{{ asset('vendors/feather/feather.css') }}">
+  <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
+  <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('js/select.dataTables.min.css') }}">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
+  @yield('head')
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    @include('partials.navbar')
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      @include('partials.settings-panel')
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                  <h3 class="font-weight-bold">Halaman Voting</h3>
+                  <h6 class="font-weight-normal mb-0">Selamat datang {{ $data_anggota->nama }}. Suara anda sangat berharga untuk pemilihan ini.</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Data Anggota Tercatat</h4>
+                  <div class="table-responsive">
+                    <table class="table table-hover display">
+                      <tr>
+                        <th>Nomor Anggota</th>
+                        <td>:</td>
+                        <td>{{ $data_anggota->no_anggota }}</td>
+                      </tr>
+                      <tr>
+                        <th>Nama</th>
+                        <td>:</td>
+                        <td>{{ $data_anggota->nama }}</td>
+                      </tr>
+                      <tr>
+                        <th>Asal Komda</th>
+                        <td>:</td>
+                        <td>{{ $data_anggota->asal_komda }}</td>
+                      </tr>
+                      <tr>
+                        <th>Status Keaktifan</th>
+                        <td>:</td>
+                        <td><a class="btn btn-sm btn-inverse-{{ $data_anggota->status_keaktifan ? 'primary' : 'danger' }}">{{ $data_anggota->status_keaktifan ? 'Aktif' : 'Tidak Aktif' }}</a></td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Tentukan Pilihanmu!</h3>
+                  @if (session('success'))
+                      <div class="alert alert-success">{{ session('success') }}</div>
+                  @endif
+            
+                  <form action="{{ route('anggota.vote.process') }}" method="POST">
+                      @csrf
+                      <div class="mb-3">
+                          <label for="pilihan" class="form-label">Pilih Calon</label>
+                          <select name="pilihan" class="form-select" required>
+                              <option value="">-- Pilih Calon --</option>
+                              <option value=1>Calon 01</option>
+                              <option value=2>Calon 02</option>
+                              <option value=3>Calon 03</option>
+                              <option value=4>Calon 04</option>
+                          </select>
+                      </div>
+                      <button type="submit" class="btn btn-success">Submit Vote</button>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        @include('partials.footer')
+        <!-- partial -->
       </div>
+      <!-- main-panel ends -->
     </div>
-    <div class="col-md-6 grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Tentukan Pilihanmu!</h3>
-          @if (session('success'))
-              <div class="alert alert-success">{{ session('success') }}</div>
-          @endif
-    
-          <form action="{{ route('anggota.vote.process') }}" method="POST">
-              @csrf
-              <div class="mb-3">
-                  <label for="pilihan" class="form-label">Pilih Calon</label>
-                  <select name="pilihan" class="form-select" required>
-                      <option value="">-- Pilih Calon --</option>
-                      <option value=1>Calon 01</option>
-                      <option value=2>Calon 02</option>
-                      <option value=3>Calon 03</option>
-                      <option value=4>Calon 04</option>
-                  </select>
-              </div>
-              <button type="submit" class="btn btn-success">Submit Vote</button>
-          </form>
-        </div>
-      </div>
-    </div>
+    <!-- page-body-wrapper ends -->
   </div>
-</div>
-@endsection
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="{{ asset('vendors/chart.js/Chart.min.js') }}"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="{{ asset('js/off-canvas.js') }}"></script>
+  <script src="{{ asset('js/hoverable-collapse.js') }}"></script>
+  <script src="{{ asset('js/template.js') }}"></script>
+  <script src="{{ asset('js/settings.js') }}"></script>
+  <script src="{{ asset('js/todolist.js') }}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{{ asset('js/dashboard.js') }}"></script>
+  <script src="{{ asset('js/Chart.roundedBarCharts.js') }}"></script>
+  <!-- End custom js for this page-->
+
+  @yield('script')
+</body>
+
+</html>
