@@ -49,6 +49,37 @@
             <img src="{{ asset('poster.jpg') }}" class="img-fluid rounded shadow" alt="Poster Voting" style="max-width: 600px;">
         </div>
 
+        <div class="row text-center g-4 mb-4">
+            <div class="col-md-3">
+                <div class="card text-center p-4">
+                    <h5 class="card-title">Kandidat</h5>
+                    <p class="vote-count">12</p>
+                    <p class="text-muted">Suara</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center p-4">
+                    <h5 class="card-title">Kandidat</h5>
+                    <p class="vote-count">12</p>
+                    <p class="text-muted">Suara</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center p-4">
+                    <h5 class="card-title">Kandidat</h5>
+                    <p class="vote-count">12</p>
+                    <p class="text-muted">Suara</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center p-4">
+                    <h5 class="card-title">Kandidat</h5>
+                    <p class="vote-count">12</p>
+                    <p class="text-muted">Suara</p>
+                </div>
+            </div>
+        </div>
+
         <!-- Total Votes Section -->
         <div class="text-center">
             <h4 class="text-dark">Total Suara Terhitung: <span class="badge bg-primary fs-4">345</span></h4>
@@ -81,7 +112,7 @@
                         <label for="no_anggota" class="form-label">Nomor Anggota</label>
                         <input type="text" class="form-control" id="no_anggota" name="no_anggota" required>
                     </div>
-                    <button type="submit" class="btn btn-success">Validasi</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </form>
             </div>
         </div>

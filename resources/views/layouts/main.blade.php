@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}">
   <!-- endinject -->
   <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
   <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('js/select.dataTables.min.css') }}">
   <!-- End plugin css for this page -->
@@ -20,6 +19,7 @@
   <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
+  @yield('head')
 </head>
 <body>
   <div class="container-scroller">
@@ -51,10 +51,6 @@
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src="{{ asset('vendors/chart.js/Chart.min.js') }}"></script>
-  <script src="{{ asset('endors/datatables.net/jquery.dataTables.js') }}v"></script>
-  <script src="{{ asset('endors/datatables.net-bs4/dataTables.bootstrap4.js') }}v"></script>
-  <script src="{{ asset('s/dataTables.select.min.js') }}j"></script>
-
   <!-- End plugin js for this page -->
   <!-- inject:js -->
   <script src="{{ asset('js/off-canvas.js') }}"></script>
@@ -67,6 +63,8 @@
   <script src="{{ asset('js/dashboard.js') }}"></script>
   <script src="{{ asset('js/Chart.roundedBarCharts.js') }}"></script>
   <!-- End custom js for this page-->
+
+  @yield('script')
 </body>
 
 </html>
