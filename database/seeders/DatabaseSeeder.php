@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +14,35 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Admin
+        User::create([
+            'no_anggota' => 'xxx',
+            'nama' => 'Admin',
+            'asal_komda' => 'xxx',
+            'email' => 'admin@ngobarengaidil.com',
+            'password' => Hash::make('@#$admin123@#$'),
+            'level' => 'admin',
+            'status_keaktifan' => true
+        ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // Contoh Anggota
+        User::create([
+            'no_anggota' => 'YUPIR123',
+            'nama' => 'Gulali Ijo',
+            'asal_komda' => 'Kijang Selatan',
+            'level' => 'anggota',
+            'status_keaktifan' => true
+        ]);
+
+        // Contoh Dewan Kehormatan
+        User::create([
+            'no_anggota' => 'DEWAN123',
+            'nama' => 'Gus Miftah',
+            'asal_komda' => 'Senggaran Timur',
+            'email' => 'gusgusan@gmail.com',
+            'password' => Hash::make('gusgusan'),
+            'level' => 'dewan',
+            'status_keaktifan' => true
         ]);
     }
 }
