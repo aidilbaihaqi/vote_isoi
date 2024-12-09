@@ -129,7 +129,7 @@
         <!-- Form Validasi Dewan Kehormatan -->
         <div id="form-dewan" class="d-none">
             <div class="card p-4 shadow mb-4 mx-auto" style="max-width: 600px; width: 100%;">
-                <h5 class="mb-3">Validasi Dewan Kehormatan</h5>
+                <h5 class="mb-3 text-center">Validasi Dewan Kehormatan</h5>
                 <form action="" method="POST">
                     @csrf
                     <div class="mb-3">

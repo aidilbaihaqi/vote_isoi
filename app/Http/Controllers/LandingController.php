@@ -29,7 +29,7 @@ class LandingController extends Controller
     public function validatedAnggota(Request $request) 
     {
         $request->validate([
-            'no_anggota'=>'required|exists:users,no_anggota'
+            'no_anggota'=>'required'
         ]);
 
         $anggota = User::where('no_anggota', $request->no_anggota)->where('level', 'anggota')->first();
