@@ -121,7 +121,7 @@
                         <label for="no_anggota" class="form-label">Nomor Anggota</label>
                         <input type="text" class="form-control" id="no_anggota" name="no_anggota" required>
                     </div>
-                    <button type="submit" class="btn btn-success w-100">Submit</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </form>
             </div>
         </div>
