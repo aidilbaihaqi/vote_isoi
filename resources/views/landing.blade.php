@@ -82,7 +82,7 @@
 
         <!-- Total Votes Section -->
         <div class="text-center">
-            <h4 class="text-dark">Total Suara Terhitung: <span class="badge bg-primary fs-4">345</span></h4>
+            <h4 class="text-dark">Total Suara Terhitung: <span class="badge bg-primary fs-5">{{ $all_count }}</span></h4>
         </div>
 
         {{-- <!-- Voting Results Section -->
