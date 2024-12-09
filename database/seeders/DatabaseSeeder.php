@@ -35,6 +35,15 @@ class DatabaseSeeder extends Seeder
             'status_keaktifan' => true
         ]);
 
+         // Contoh Anggota
+         User::create([
+            'no_anggota' => 'JAPRI123',
+            'nama' => 'Gulali Kuning',
+            'asal_komda' => 'Kijang Selatan',
+            'level' => 'anggota',
+            'status_keaktifan' => false
+        ]);
+
         // Contoh Dewan Kehormatan
         User::create([
             'no_anggota' => 'DEWAN123',
