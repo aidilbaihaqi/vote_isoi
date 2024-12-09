@@ -106,21 +106,21 @@
 
         <!-- Form Validasi Anggota -->
         <div id="form-anggota" class="d-none">
-            <div class="card p-4 shadow mb-4 mx-auto" style="width: 50%">
-                <h5 class="mb-3">Validasi Anggota</h5>
+            <div class="card p-4 shadow mb-4 mx-auto" style="max-width: 600px; width: 100%;">
+                <h5 class="mb-3 text-center">Validasi Anggota</h5>
                 <form action="" method="POST">
                     <div class="mb-3">
                         <label for="no_anggota" class="form-label">Nomor Anggota</label>
                         <input type="text" class="form-control" id="no_anggota" name="no_anggota" required>
                     </div>
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success w-100">Submit</button>
                 </form>
             </div>
         </div>
 
         <!-- Form Validasi Dewan Kehormatan -->
         <div id="form-dewan" class="d-none">
-            <div class="card p-4 shadow mb-4 mx-auto" style="width: 50%">
+            <div class="card p-4 shadow mb-4 mx-auto" style="max-width: 600px; width: 100%;">
                 <h5 class="mb-3">Validasi Dewan Kehormatan</h5>
                 <form action="" method="POST">
                     <div class="mb-3">
