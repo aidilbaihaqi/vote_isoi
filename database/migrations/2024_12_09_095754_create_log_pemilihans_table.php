@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('log_pemilihans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pemilih_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('pemilih_id')->constrained('users')->onDelete('cascade')->unique();
+            $table->integer('pilihan');
             $table->string('ip_address');
             $table->timestamps();
         });

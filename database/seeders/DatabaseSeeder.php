@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\LogPemilihan;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -43,6 +44,13 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('gusgusan'),
             'level' => 'dewan',
             'status_keaktifan' => true
+        ]);
+
+        // Contoh Log Pemilihan
+        LogPemilihan::create([
+            'pemilih_id' => 3,
+            'pilihan' => 1,
+            'ip_address' => 'o1723082309123132131212321321',
         ]);
     }
 }

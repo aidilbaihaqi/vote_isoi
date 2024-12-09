@@ -13,7 +13,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{{ route('logpemilihan.index') }}">
         <i class="icon-contract menu-icon"></i>
         <span class="menu-title">Log Pemilihan</span>
       </a>
