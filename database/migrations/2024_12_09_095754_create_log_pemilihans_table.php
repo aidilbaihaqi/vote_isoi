@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('pemilih_id')->constrained('users')->onDelete('cascade')->unique();
             $table->integer('pilihan');
             $table->string('ip_address');
+            $table->date('voted_at');
             $table->timestamps();
         });
     }

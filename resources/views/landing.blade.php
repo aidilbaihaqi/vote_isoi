@@ -104,11 +104,19 @@
             </div>
         </div>
 
+        @if (session('error'))
+            <div class="alert alert-danger">{{ session('error') }}</div>
+        @endif
+        @if (session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+
         <!-- Form Validasi Anggota -->
         <div id="form-anggota" class="d-none">
             <div class="card p-4 shadow mb-4 mx-auto" style="max-width: 600px; width: 100%;">
                 <h5 class="mb-3 text-center">Validasi Anggota</h5>
-                <form action="" method="POST">
+                <form action="{{ route('validate.anggota') }}" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <label for="no_anggota" class="form-label">Nomor Anggota</label>
                         <input type="text" class="form-control" id="no_anggota" name="no_anggota" required>
@@ -123,6 +131,7 @@
             <div class="card p-4 shadow mb-4 mx-auto" style="max-width: 600px; width: 100%;">
                 <h5 class="mb-3">Validasi Dewan Kehormatan</h5>
                 <form action="" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" name="email" required>

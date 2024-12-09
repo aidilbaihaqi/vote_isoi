@@ -7,6 +7,10 @@ use App\Http\Controllers\PemilihController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::post('/', [LandingController::class, 'validatedAnggota'])->name('validate.anggota');
+
+Route::get('/anggota/vote', [LandingController::class, 'formAnggota'])->name('anggota.vote')->middleware('canVote');
+Route::post('/anggota/vote', [LandingController::class, 'anggotaVote'])->name('anggota.vote.process')->middleware('canVote');
 
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
