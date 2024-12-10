@@ -18,7 +18,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="{{ asset('favicon.ico')) }}" />
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
   @yield('head')
 </head>
 <body>
