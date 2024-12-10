@@ -13,6 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'canVote' => \App\Http\Middleware\CanVote::class,
+            'checkLogin' => \App\Http\Middleware\CheckLogin::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

@@ -13,10 +13,13 @@
           <img src="{{ asset('images/faces/admin.jpg') }}" alt="profile"/>
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-          <a class="dropdown-item">
-            <i class="ti-power-off text-primary"></i>
-            Logout
-          </a>
+          <form action="{{ route('logout') }}" method="post">
+            @csrf
+            <button type="submit" class="dropdown-item">
+              <i class="ti-power-off text-primary"></i>
+              Logout
+            </button>
+          </form>
         </div>
       </li>
     </ul>
