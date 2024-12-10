@@ -38,7 +38,7 @@
           @enderror
       </div>
 
-      <div class="mb-3">
+      <div class="mb-3" style="width: 50%">
         <label for="asal_komda">Pilih Asal Komda:</label>
         <select id="asal_komda" name="asal_komda" class="form-control @error('asal_komda') is-invalid @enderror">
           <option value="" disabled>-- Pilih Asal Komda --</option>
@@ -52,9 +52,9 @@
         @enderror
       </div>
 
-      <div class="mb-3">
+      <div class="mb-3" style="width: 40%">
           <label for="status_keaktifan" class="form-label">Status Keaktifan</label>
-          <select name="status_keaktifan" class="form-select @error('status_keaktifan') is-invalid @enderror" required>
+          <select name="status_keaktifan" class="form-control @error('status_keaktifan') is-invalid @enderror" required>
               <option value=1 {{ $pemilih->status_keaktifan == 1 ? 'selected' : '' }}>Aktif</option>
               <option value=0 {{ $pemilih->status_keaktifan == 0 ? 'selected' : '' }}>Tidak Aktif</option>
           </select>

@@ -37,8 +37,8 @@
           @enderror
       </div>
 
-      <div class="mb-3">
-        <label for="asal_komda">Pilih Asal Komda:</label>
+      <div class="mb-3" style="width: 50%">
+        <label for="asal_komda">Pilih Asal Komda</label>
         <select id="asal_komda" name="asal_komda" class="form-control @error('asal_komda') is-invalid @enderror">
             <option value="" disabled selected>-- Pilih Asal Komda --</option>
             <option value="DKI Jakarta">DKI Jakarta</option>
@@ -73,9 +73,9 @@
         @enderror
       </div>
 
-      <div class="mb-3">
+      <div class="mb-3" style="width: 40%">
           <label for="status_keaktifan" class="form-label">Status Keaktifan</label>
-          <select name="status_keaktifan" class="form-select @error('status_keaktifan') is-invalid @enderror" required>
+          <select name="status_keaktifan" class="form-control @error('status_keaktifan') is-invalid @enderror" required>
               <option value="">-- Pilih Status --</option>
               <option value=1>Aktif</option>
               <option value=0>Tidak Aktif</option>
