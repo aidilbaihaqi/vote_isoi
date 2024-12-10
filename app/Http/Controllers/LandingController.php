@@ -43,7 +43,26 @@ class LandingController extends Controller
 
         if(!$anggota) 
         {
-            return redirect()->route('landing')->with(['error' => 'Nomor anggota tidak valid. Harap cek kembali!']);
+            return redirect()->route('landing')->with(['error' => 'Nomor anggota tidak valid atau tidak terdaftar. Harap cek kembali!']);
+        }
+
+        Session::put('validated_anggota', $anggota);
+
+        return redirect()->route('anggota.vote')
+        ->with(['success' => 'Validasi berhasil. Anda dapat melakukan voting.']);
+    }
+
+    public function validatedDewan(Request $request)
+    {
+        $request->validate([
+            'email' => 'required'
+        ]);
+
+        $anggota = User::where('email', $request->email)->where('level', 'dewan')->first();
+
+        if(!$anggota) 
+        {
+            return redirect()->route('landing')->with(['error' => 'Email tidak valid atau tidak terdaftar. Harap cek kembali!']);
         }
 
         Session::put('validated_anggota', $anggota);

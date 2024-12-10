@@ -29,7 +29,7 @@
           <div class="row">
             <div class="col-12 col-xl-8 mb-4 mb-xl-0">
               <h3 class="font-weight-bold">Halaman Voting</h3>
-              <h6 class="font-weight-normal mb-0">Selamat datang {{ $data_anggota->nama }}. Suara anda sangat berharga untuk pemilihan ini.</h6>
+              <h5 class="font-weight-normal mb-0">Selamat datang <span class="text-primary">{{ $data_anggota->nama }}.</span> Suara anda sangat berharga untuk pemilihan ini.</h5>
             </div>
             <div class="col-12 col-xl-4">
               <div class="justify-content-end d-flex">
@@ -61,6 +61,11 @@
                     <th>Nama</th>
                     <td>:</td>
                     <td>{{ $data_anggota->nama }}</td>
+                  </tr>
+                  <tr>
+                    <th>Email</th>
+                    <td>:</td>
+                    <td>{{ $data_anggota->email }}</td>
                   </tr>
                   <tr>
                     <th>Asal Komda</th>
