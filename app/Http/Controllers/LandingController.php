@@ -26,6 +26,13 @@ class LandingController extends Controller
         ]);
     }
 
+    public function backToLanding()
+    {
+        Session::forget('validated_anggota');
+
+        return redirect()->route('landing')->with(['success' => 'Anda telah kembali kehalaman utama anda. Sesi ada telah dihapus']);
+    }
+
     public function validatedAnggota(Request $request) 
     {
         $request->validate([

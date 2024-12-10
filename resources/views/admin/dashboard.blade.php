@@ -13,7 +13,7 @@
         <div class="col-12 col-xl-4">
          <div class="justify-content-end d-flex">
           <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-            <a class="btn btn-sm btn-outline-primary">{{ \Carbon\Carbon::now()->translatedFormat('l, d F Y') }}</a>
+            <a class="btn btn-sm btn-inverse-primary">{{ \Carbon\Carbon::now()->translatedFormat('l, d F Y') }}</a>
           </div>
          </div>
         </div>

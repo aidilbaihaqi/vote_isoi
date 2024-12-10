@@ -31,8 +31,19 @@
               <h3 class="font-weight-bold">Halaman Voting</h3>
               <h6 class="font-weight-normal mb-0">Selamat datang {{ $data_anggota->nama }}. Suara anda sangat berharga untuk pemilihan ini.</h6>
             </div>
+            <div class="col-12 col-xl-4">
+              <div class="justify-content-end d-flex">
+               <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+                <form action="{{ route('anggota.back') }}" method="post">
+                  @csrf
+                  <button type="submit" class="btn btn-sm btn-primary">Kembali ke halaman utama</button>
+                </form>
+               </div>
+              </div>
+             </div>
           </div>
         </div>
+        
       </div>
       <div class="row">
         <div class="col-md-4 grid-margin stretch-card">

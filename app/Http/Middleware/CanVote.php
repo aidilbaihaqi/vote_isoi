@@ -17,8 +17,7 @@ class CanVote
     public function handle(Request $request, Closure $next): Response
     {
         if(!Session::has('validated_anggota')) {
-            return redirect()->route('landing')
-            ->with(['error', 'Anda harus memvalidasi nomor anggota atau email terlebih dahulu.']);
+            return redirect()->route('landing')->with(['error', 'Anda harus memvalidasi nomor anggota atau email terlebih dahulu.']);
         }
 
         return $next($request);

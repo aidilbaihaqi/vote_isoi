@@ -11,6 +11,7 @@ Route::post('/', [LandingController::class, 'validatedAnggota'])->name('validate
 
 Route::get('/anggota/vote', [LandingController::class, 'formAnggota'])->name('anggota.vote')->middleware('canVote');
 Route::post('/anggota/vote', [LandingController::class, 'anggotaVote'])->name('anggota.vote.process')->middleware('canVote');
+Route::post('/anggota/vote/backToLanding', [LandingController::class, 'backToLanding'])->name('anggota.back');
 
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
