@@ -29,6 +29,11 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Data Pemilih</h4>
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="table-responsive">
           <table id="dataPemilih" class="table table-hover display">
             <thead>
@@ -39,6 +44,7 @@
                 <th>Asal Komda</th>
                 <th>Status</th>
                 <th>Email</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -50,6 +56,10 @@
                   <td>{{ $p->asal_komda }}</td>
                   <td><a class="btn btn-sm btn-{{ $p->status_keaktifan ? 'primary' : 'danger' }}">{{ $p->status_keaktifan ? 'aktif' : 'tidak aktif' }}</a></td>
                   <td>{{ $p->email }}</td>
+                  <td>
+                    <a class="btn btn-sm btn-inverse-primary" href="{{ route('pemilih.edit', $p->id) }}">Edit</a>
+                    <a class="btn btn-sm btn-inverse-danger" href="{{ route('pemilih.destroy', $p->id) }}">Hapus</a>
+                  </td>
                 </tr>
               @endforeach
             </tbody>

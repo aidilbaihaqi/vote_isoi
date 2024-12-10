@@ -15,7 +15,10 @@ Route::post('/anggota/vote', [LandingController::class, 'anggotaVote'])->name('a
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 Route::get('/admin/data-pemilih', [PemilihController::class, 'index'])->name('pemilih.index');
-Route::get('/admin/tambah-data-pemilih', [PemilihController::class, 'create'])->name('pemilih.create');
-Route::post('/admin/tambah-data-pemilih', [PemilihController::class, 'store'])->name('pemilih.store');
+Route::get('/admin/data-pemilih/tambah-data-pemilih', [PemilihController::class, 'create'])->name('pemilih.create');
+Route::post('/admin/data-pemilih/tambah-data-pemilih', [PemilihController::class, 'store'])->name('pemilih.store');
+Route::get('/admin/data-pemilih/{id}/ubah-data-pemilih', [PemilihController::class, 'edit'])->name('pemilih.edit');
+Route::put('/admin/data-pemilih/{id}', [PemilihController::class, 'update'])->name('pemilih.update');
+Route::get('/admin/data-pemilih/{id}', [PemilihController::class, 'destroy'])->name('pemilih.destroy');
 
 Route::get('/admin/log-pemilihan', [LogPemilihanController::class, 'index'])->name('logpemilihan.index');

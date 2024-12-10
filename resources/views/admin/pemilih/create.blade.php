@@ -38,11 +38,39 @@
       </div>
 
       <div class="mb-3">
-          <label for="asal_komda" class="form-label">Asal Komda</label>
-          <input type="text" name="asal_komda" class="form-control @error('asal_komda') is-invalid @enderror" required>
-          @error('asal_komda')
-              <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
+        <label for="asal_komda">Pilih Asal Komda:</label>
+        <select id="asal_komda" name="asal_komda" class="form-control @error('asal_komda') is-invalid @enderror">
+            <option value="" disabled selected>-- Pilih Asal Komda --</option>
+            <option value="DKI Jakarta">DKI Jakarta</option>
+            <option value="Pekanbaru">Pekanbaru</option>
+            <option value="Manado">Manado</option>
+            <option value="Makassar">Makassar</option>
+            <option value="Bogor">Bogor</option>
+            <option value="Bandung">Bandung</option>
+            <option value="Yogyakarta">Yogyakarta</option>
+            <option value="Surabaya">Surabaya</option>
+            <option value="Ambon">Ambon</option>
+            <option value="Denpasar">Denpasar</option>
+            <option value="Semarang">Semarang</option>
+            <option value="Serang">Serang</option>
+            <option value="Malang">Malang</option>
+            <option value="Mataram">Mataram</option>
+            <option value="Lampung">Lampung</option>
+            <option value="Palembang">Palembang</option>
+            <option value="Banda Aceh">Banda Aceh</option>
+            <option value="Samarinda">Samarinda</option>
+            <option value="Bangka Belitung">Bangka Belitung</option>
+            <option value="Luar Negeri">Luar Negeri</option>
+            <option value="Banjarmasin">Banjarmasin</option>
+            <option value="Kendari">Kendari</option>
+            <option value="Tanjungpinang">Tanjungpinang</option>
+            <option value="Manokwari">Manokwari</option>
+            <option value="Kupang">Kupang</option>
+            <option value="Bengkulu">Bengkulu</option>
+        </select>
+        @error('asal_komda')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
       </div>
 
       <div class="mb-3">
