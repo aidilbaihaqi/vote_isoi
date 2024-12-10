@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6 grid-margin stretch-card">
+        <div class="col-md-4 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">Data Anggota Tercatat</h4>
@@ -66,31 +66,56 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 grid-margin stretch-card">
+        <div class="col-md-8 grid-margin stretch-card">
           <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Tentukan Pilihanmu!</h3>
-              @if (session('success'))
-                  <div class="alert alert-success">{{ session('success') }}</div>
-              @endif
-        
-              <form action="{{ route('anggota.vote.process') }}" method="POST">
-                  @csrf
-                  <div class="mb-3">
-                      <label for="pilihan" class="form-label">Pilih Calon</label>
-                      <select name="pilihan" class="form-select" required>
-                          <option value="">-- Pilih Calon --</option>
-                          <option value=1>Calon 01</option>
-                          <option value=2>Calon 02</option>
-                          <option value=3>Calon 03</option>
-                          <option value=4>Calon 04</option>
-                      </select>
-                  </div>
-                  <button type="submit" class="btn btn-success">Submit Vote</button>
-              </form>
-            </div>
+              <div class="card-body">
+                  <h4 class="card-title">Tentukan Pilihanmu!</h4>
+                  @if (session('success'))
+                      <div class="alert alert-success">{{ session('success') }}</div>
+                  @endif
+      
+                  <form action="{{ route('anggota.vote.process') }}" method="POST">
+                      @csrf
+                      <div class="row text-center">
+                          <!-- Calon 01 -->
+                          <div class="col-md-3 col-sm-6 mb-4">
+                              <label for="calon01" class="d-block">
+                                  <img src="{{ asset('calon/calon01.png') }}" class="img-fluid rounded shadow mb-2" alt="Calon 1">
+                                  <input type="radio" name="pilihan" id="calon01" value="1">
+                                  <span>Calon 01</span>
+                              </label>
+                          </div>
+                          <!-- Calon 02 -->
+                          <div class="col-md-3 col-sm-6 mb-4">
+                              <label for="calon02" class="d-block">
+                                  <img src="{{ asset('calon/calon02.png') }}" class="img-fluid rounded shadow mb-2" alt="Calon 2">
+                                  <input type="radio" name="pilihan" id="calon02" value="2">
+                                  <span>Calon 02</span>
+                              </label>
+                          </div>
+                          <!-- Calon 03 -->
+                          <div class="col-md-3 col-sm-6 mb-4">
+                              <label for="calon03" class="d-block">
+                                  <img src="{{ asset('calon/calon03.png') }}" class="img-fluid rounded shadow mb-2" alt="Calon 3">
+                                  <input type="radio" name="pilihan" id="calon03" value="3">
+                                  <span>Calon 03</span>
+                              </label>
+                          </div>
+                          <!-- Calon 04 -->
+                          <div class="col-md-3 col-sm-6 mb-4">
+                              <label for="calon04" class="d-block">
+                                  <img src="{{ asset('calon/calon04.png') }}" class="img-fluid rounded shadow mb-2" alt="Calon 4">
+                                  <input type="radio" name="pilihan" id="calon04" value="4">
+                                  <span>Calon 04</span>
+                              </label>
+                          </div>
+                      </div>
+                      <button type="submit" class="btn btn-success">Submit Vote</button>
+                  </form>
+              </div>
           </div>
-        </div>
+      </div>
+      
       </div>
     </div>
     <!-- content-wrapper ends -->
