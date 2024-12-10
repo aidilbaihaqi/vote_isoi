@@ -14,7 +14,7 @@ Route::post('/validate-dewan', [LandingController::class, 'validatedDewan'])->na
 
 // Form Vote
 Route::get('/pemilih/vote', [LandingController::class, 'formAnggota'])->name('anggota.vote')->middleware('canVote');
-Route::post('/anggota/vote', [LandingController::class, 'anggotaVote'])->name('anggota.vote.process')->middleware('canVote');
+Route::post('/pemilih/vote', [LandingController::class, 'anggotaVote'])->name('anggota.vote.process')->middleware('canVote');
 Route::post('/pemilih/vote/backToLanding', [LandingController::class, 'backToLanding'])->name('anggota.back');
 
 // Login Admin
@@ -25,6 +25,7 @@ Route::post('/admin/login', [AuthController::class, 'login'])->name('login');
 Route::middleware('checkLogin')->group(function() {
   Route::post('/admin/logout', [AuthController::class, 'logout'])->name('logout');
   Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+  Route::post('/admin/toggle-voting', [DashboardController::class, 'toggleVoting'])->name('admin.toggleVoting');
 
   Route::get('/admin/data-pemilih', [PemilihController::class, 'index'])->name('pemilih.index');
   Route::get('/admin/data-pemilih/tambah-data-pemilih', [PemilihController::class, 'create'])->name('pemilih.create');

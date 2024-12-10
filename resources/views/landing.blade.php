@@ -42,59 +42,80 @@
 <body class="container-fluid">
 
     <div class="container mt-5">
-        <!-- Form Role Selection -->
-        <div class="mb-5 text-center text-dark">
-            <h5 class="display-7 fw-bold text-dark">Pilih pemimpin masa depan dengan suara Anda!</h5>
-            <p class="text-muted">Pemilihan dibedakan menjadi dua yaitu Anggota dan Dewan Kehormatan</p>
-            <div class="btn-group mt-3" role="group">
-                <button type="button" class="btn btn-primary" onclick="showForm('anggota')">Anggota</button>
-                <button type="button" class="btn btn-secondary" onclick="showForm('dewan')">Dewan Kehormatan</button>
-            </div>
-        </div>
 
-        @if (session('error'))
+        @php
+            $votingstatus = \App\Models\Setting::first()->voting_status;
+        @endphp
+
+        @if ($votingstatus)
+            <!-- Form Role Selection -->
+            <div class="mb-5 text-center text-dark">
+                <h2 class="">Voting telah dibuka!</h2>
+                <p class="text-muted">Pemilihan dibedakan menjadi dua yaitu Anggota dan Dewan Kehormatan</p>
+                <div class="btn-group mt-3" role="group">
+                    <button type="button" class="btn btn-primary" onclick="showForm('anggota')">Anggota</button>
+                    <button type="button" class="btn btn-secondary" onclick="showForm('dewan')">Dewan Kehormatan</button>
+                </div>
+            </div>
+
+            @if (session('error'))
             <div class="alert alert-danger">{{ session('error') }}</div>
-        @endif
-        @if (session('success'))
+            @endif
+            @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
+            @endif
 
-        <!-- Form Validasi Anggota -->
-        <div id="form-anggota" class="d-none">
-            <div class="card p-4 shadow mb-4 mx-auto" style="max-width: 600px; width: 100%;">
-                <h5 class="mb-3 text-center">Validasi Anggota</h5>
-                <form action="{{ route('validate.anggota') }}" method="POST">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="no_anggota" class="form-label">Nomor Anggota</label>
-                        <input type="text" class="form-control" id="no_anggota" name="no_anggota" required>
-                    </div>
-                    <button type="submit" class="btn btn-success">Submit</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Form Validasi Dewan Kehormatan -->
-        <div id="form-dewan" class="d-none">
+            <!-- Form Validasi Anggota -->
+            <div id="form-anggota" class="d-none">
                 <div class="card p-4 shadow mb-4 mx-auto" style="max-width: 600px; width: 100%;">
-                    <h5 class="mb-3 text-center">Validasi Dewan Kehormatan</h5>
-                    <form action="{{ route('validate.dewan') }}" method="POST">
+                    <h5 class="mb-3 text-center">Validasi Anggota</h5>
+                    <form action="{{ route('validate.anggota') }}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <label for="no_anggota" class="form-label">Nomor Anggota</label>
+                            <input type="text" class="form-control" id="no_anggota" name="no_anggota" required>
                         </div>
                         <button type="submit" class="btn btn-success">Submit</button>
                     </form>
                 </div>
             </div>
+
+            <!-- Form Validasi Dewan Kehormatan -->
+            <div id="form-dewan" class="d-none">
+                    <div class="card p-4 shadow mb-4 mx-auto" style="max-width: 600px; width: 100%;">
+                        <h5 class="mb-3 text-center">Validasi Dewan Kehormatan</h5>
+                        <form action="{{ route('validate.dewan') }}" method="POST">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        @else
+
+        <div class="text-center text-dark">
+            <h2>Voting Ditutup</h2>
+            <p>Voting belum dibuka atau sudah ditutup oleh admin.</p>
+
+            @if (session('error'))
+            <div class="alert alert-danger">{{ session('error') }}</div>
+            @endif
+            @if (session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
         </div>
+        @endif
+
     </div>
 
     <div class="container mb-5 mt-3">
         <!-- Title Section -->
         <div class="text-center mb-4">
-            <h1 class="display-7 fw-bold text-dark">Voting Ketua Umum ISOI</h1>
+            <h1 class="display-6 text-dark">Voting Ketua Umum ISOI</h1>
         </div>
 
         <!-- Poster Section -->
