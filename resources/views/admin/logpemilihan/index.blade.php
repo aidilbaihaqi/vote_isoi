@@ -50,6 +50,7 @@
                 <th>No Anggota</th>
                 <th>Pilihan</th>
                 <th>IP Address</th>
+                <th>User Agent</th>
                 <th>Voted At</th>
               </tr>
             </thead>
@@ -60,6 +61,7 @@
                   <td><a href="{{ route('pemilih.index') }}">{{ $p->user->no_anggota }}</a></td>
                   <td>{{ $p->pilihan }}</td>
                   <td>{{ $p->ip_address }}</td>
+                  <td>{{ $p->user_agent }}</td>
                   <td>{{ $p->created_at }}</td>
                 </tr>
               @endforeach
