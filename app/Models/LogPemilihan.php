@@ -10,8 +10,8 @@ class LogPemilihan extends Model
 {
     protected $guarded = ['id'];
 
-    public function user(): HasOne
+    public function user(): BelongsTo
     {
-        return $this->hasOne(User::class, 'id', 'pemilih_id');
+        return $this->belongsTo(User::class, 'pemilih_id', 'id');
     }
 }

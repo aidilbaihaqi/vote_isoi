@@ -53,7 +53,7 @@ class LandingController extends Controller
             'no_anggota'=>'required'
         ]);
 
-        $anggota = User::where('no_anggota', $request->no_anggota)->where('level', 'anggota')->first();
+        $anggota = User::with('pemilihan')->where('no_anggota', $request->no_anggota)->where('level', 'anggota')->first();
 
         if(!$anggota) 
         {
@@ -61,6 +61,7 @@ class LandingController extends Controller
         }
 
         Session::put('validated_anggota', $anggota);
+        Session::put('cek_device', $anggota->pemilihan);
 
         return redirect()->route('anggota.vote')
         ->with(['success' => 'Validasi berhasil. Anda dapat melakukan voting.']);
@@ -72,7 +73,7 @@ class LandingController extends Controller
             'email' => 'required'
         ]);
 
-        $anggota = User::where('email', $request->email)->where('level', 'dewan')->first();
+        $anggota = User::with('pemilihan')->where('email', $request->email)->where('level', 'dewan')->first();
 
         if(!$anggota) 
         {
@@ -80,6 +81,7 @@ class LandingController extends Controller
         }
 
         Session::put('validated_anggota', $anggota);
+        Session::put('cek_device', $anggota->pemilihan);
 
         return redirect()->route('anggota.vote')
         ->with(['success' => 'Validasi berhasil. Anda dapat melakukan voting.']);
@@ -88,6 +90,12 @@ class LandingController extends Controller
     public function formAnggota()
     {
         $data_anggota = Session::get('validated_anggota');
+        $cek_device = Session::get('cek_device');
+
+        if($cek_device) {
+            Session::forget('validated_anggota');
+            return redirect()->route('landing')->with('error', 'Anda hanya diperkenankan untuk memvoting dengan satu device.');
+        }
 
         if (!$data_anggota->status_keaktifan) {
             Session::forget('validated_anggota');
@@ -107,7 +115,17 @@ class LandingController extends Controller
 
         $data_anggota = Session::get('validated_anggota');
 
+        // Identitas perangkat
+        $ipAddress = $request->ip();
+        $userAgent = $request->header('User-Agent');
+
         $existing_anggota = LogPemilihan::where('pemilih_id', $data_anggota->id)->first();
+        $cek_device = LogPemilihan::where('ip_address',$ipAddress)->where('user_agent',$userAgent)->first();
+
+        if($cek_device) {
+            Session::forget('validated_anggota');
+            return redirect()->route('landing')->with('error', 'Anda hanya diperkenankan untuk memvoting dengan satu device.');
+        }
 
         if ($existing_anggota) {
             Session::forget('validated_anggota');
@@ -118,6 +136,7 @@ class LandingController extends Controller
             'pemilih_id' => $data_anggota->id,
             'pilihan' => $request->pilihan,
             'ip_address' => $request->ip(),
+            'user_agent' => $request->header('User-Agent'),
             'voted_at' => now()
         ]);
 

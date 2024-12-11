@@ -53,8 +53,8 @@ class User extends Authenticatable
         ];
     }
 
-    public function pemilihan(): BelongsTo
+    public function pemilihan(): HasOne
     {
-        return $this->belongsTo(LogPemilihan::class, 'pemilih_id', 'id');
+        return $this->hasOne(LogPemilihan::class, 'pemilih_id', 'id');
     }
 }
