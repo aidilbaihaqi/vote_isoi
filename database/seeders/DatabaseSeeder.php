@@ -19,10 +19,19 @@ class DatabaseSeeder extends Seeder
         // Admin
         User::create([
             'no_anggota' => 'xxx',
-            'nama' => 'Admin',
+            'nama' => 'Admin 1',
             'asal_komda' => 'xxx',
-            'email' => 'admin@ngobarengaidil.com',
-            'password' => Hash::make('@#$admin123@#$'),
+            'email' => 'admin-1@voting-isoi.co.id',
+            'password' => Hash::make('admin1-isoi2024'),
+            'level' => 'admin',
+            'status_keaktifan' => true
+        ]);
+        User::create([
+            'no_anggota' => 'xxxx',
+            'nama' => 'Admin 2',
+            'asal_komda' => 'xxx',
+            'email' => 'admin-2@voting-isoi.co.id',
+            'password' => Hash::make('admin2-isoi2024'),
             'level' => 'admin',
             'status_keaktifan' => true
         ]);
