@@ -98,6 +98,7 @@
                               <label for="calon01" class="d-block">
                                   <img src="{{ asset('calon/calon01.png') }}" class="img-fluid rounded shadow mb-2" alt="Calon 1">
                                   <input type="radio" name="pilihan" id="calon01" value="1">
+                                  <h5 class="text-muted">Prof.Agus Saleh Atmadipoera,DESS</h5>
                                   <span>Calon 01</span>
                               </label>
                           </div>
@@ -106,6 +107,7 @@
                               <label for="calon02" class="d-block">
                                   <img src="{{ asset('calon/calon02.png') }}" class="img-fluid rounded shadow mb-2" alt="Calon 2">
                                   <input type="radio" name="pilihan" id="calon02" value="2">
+                                  <h5 class="text-muted">Prof.DSc Anindya Wirasatriya, MSi. MSc</h5>
                                   <span>Calon 02</span>
                               </label>
                           </div>
@@ -114,6 +116,7 @@
                               <label for="calon03" class="d-block">
                                   <img src="{{ asset('calon/calon03.png') }}" class="img-fluid rounded shadow mb-2" alt="Calon 3">
                                   <input type="radio" name="pilihan" id="calon03" value="3">
+                                  <h5 class="text-muted">Prof.Andi Kurniawan., S,Pi. M.Eng, D.Sc,</h5>
                                   <span>Calon 03</span>
                               </label>
                           </div>
@@ -122,6 +125,7 @@
                               <label for="calon04" class="d-block">
                                   <img src="{{ asset('calon/calon04.png') }}" class="img-fluid rounded shadow mb-2" alt="Calon 4">
                                   <input type="radio" name="pilihan" id="calon04" value="4">
+                                  <h5 class="text-muted">Dr.Nani Hendiarti</h5>
                                   <span>Calon 04</span>
                               </label>
                           </div>
