@@ -42,7 +42,7 @@
 <body class="container-fluid">
 
     <div class="container mt-5">
-        <div class="mb-5 text-dark">
+        <div class="mb-3 text-dark">
             <h2 class="text-center">Cek Data Pemilih</h2>
             <p class="text-muted text-center">Sebelum anda memilih, harap melakukan pengecakan data anda terlebih dahulu.</p>
             @if (session('not-found'))
@@ -64,7 +64,7 @@
         </div>
     </div>
 
-    <div class="container mt-5">
+    <div class="container mt-3">
 
         @php
             $votingstatus = \App\Models\Setting::first()->voting_status;
@@ -72,7 +72,7 @@
 
         @if ($votingstatus)
             <!-- Form Role Selection -->
-            <div class="mb-5 text-center text-dark">
+            <div class="mb-3 text-center text-dark">
                 <h2 class="">Voting telah dibuka!</h2>
                 <p class="text-muted">Pemilihan dibedakan menjadi dua yaitu Anggota dan Dewan Kehormatan</p>
                 <div class="btn-group mt-3" role="group">
