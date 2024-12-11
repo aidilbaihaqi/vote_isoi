@@ -49,7 +49,7 @@
     </div>
     <div class="col-md-3">
         <div class="card text-center p-4">
-            <h5 class="card-title">Dr.Nani Hendiarti</h5>
+            <h5 class="card-title">Dr. rer. nat. Nani Hendiarti, M.Sc</h5>
             <h3 class="vote-count">{{ $count_04 }}</h3>
             <p class="text-muted">Suara</p>
         </div>

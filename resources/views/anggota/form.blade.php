@@ -125,7 +125,7 @@
                               <label for="calon04" class="d-block">
                                   <img src="{{ asset('calon/calon04.png') }}" class="img-fluid rounded shadow mb-2" alt="Calon 4">
                                   <input type="radio" name="pilihan" id="calon04" value="4">
-                                  <h5 class="text-muted">Dr.Nani Hendiarti</h5>
+                                  <h5 class="text-muted">Dr. rer. nat. Nani Hendiarti, M.Sc</h5>
                                   <span>Calon 04</span>
                               </label>
                           </div>
