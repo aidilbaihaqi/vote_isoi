@@ -41,6 +41,7 @@
         <label for="asal_komda">Pilih Asal Komda</label>
         <select id="asal_komda" name="asal_komda" class="form-control @error('asal_komda') is-invalid @enderror">
             <option value="" disabled selected>-- Pilih Asal Komda --</option>
+            <option value="Anggota Kehormatan">Anggota Kehormatan</option>
             <option value="DKI Jakarta">DKI Jakarta</option>
             <option value="Pekanbaru">Pekanbaru</option>
             <option value="Manado">Manado</option>
