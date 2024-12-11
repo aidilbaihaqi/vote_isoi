@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::post('/validate-anggota', [LandingController::class, 'validatedAnggota'])->name('validate.anggota');
 Route::post('/validate-dewan', [LandingController::class, 'validatedDewan'])->name('validate.dewan');
+Route::post('/cek-pemilih', [LandingController::class, 'cekData'])->name('cekPemilih');
 
 // Form Vote
 Route::get('/pemilih/vote', [LandingController::class, 'formAnggota'])->name('anggota.vote')->middleware('canVote');

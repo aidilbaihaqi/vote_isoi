@@ -42,6 +42,29 @@
 <body class="container-fluid">
 
     <div class="container mt-5">
+        <div class="mb-5 text-dark">
+            <h2 class="text-center">Cek Data Pemilih</h2>
+            <p class="text-muted text-center">Sebelum anda memilih, harap melakukan pengecakan data anda terlebih dahulu.</p>
+            @if (session('not-found'))
+            <div class="alert alert-danger">{{ session('not-found') }}</div>
+            @endif
+            @if (session('data-exist'))
+            <div class="alert alert-success">{{ session('data-exist') }}</div>
+            @endif
+            <div class="card p-4 shadow mb-4 mx-auto" style="max-width: 600px; width: 100%;">
+                <form action="{{ route('cekPemilih') }}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="no_anggota" class="form-label">Cek (berdasarkan nomor anggota)</label>
+                        <input type="text" class="form-control" id="no_anggota" name="no_anggota" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Cek</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
 
         @php
             $votingstatus = \App\Models\Setting::first()->voting_status;

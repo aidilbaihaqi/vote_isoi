@@ -26,6 +26,20 @@ class LandingController extends Controller
         ]);
     }
 
+    public function cekData(Request $request)
+    {
+        $request->validate(['no_anggota' => 'required']);
+
+        $pemilih_exist = User::where('no_anggota', $request->no_anggota)->exists();
+
+        if($pemilih_exist) 
+        {
+            return redirect()->route('landing')->with(['data-exist' => 'Data anda tercatat di DPT. Anda dapat melakukan voting']);
+        }
+        return redirect()->route('landing')->with(['not-found' => 'Data anda tidak tercatat. Silahkan hubungi panitia untuk mendaftar keanggotaan.']);
+
+    }
+
     public function backToLanding()
     {
         Session::forget('validated_anggota');
