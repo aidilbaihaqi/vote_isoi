@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('no_anggota')->unique();
             $table->string('nama');
-            $table->string('email')->unique()->nullable();
-            $table->string('asal_komda');
+            $table->string('email')->nullable();
+            $table->string('asal_komda')->nullable();
             $table->enum('level', ['anggota', 'dewan', 'admin']);
             $table->boolean('status_keaktifan');
             $table->timestamp('email_verified_at')->nullable();

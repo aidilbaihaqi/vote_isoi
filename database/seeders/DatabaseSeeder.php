@@ -30,24 +30,6 @@ class DatabaseSeeder extends Seeder
         // Default Voting Status
         Setting::create(['voting_status' => true]);
 
-        // Contoh Anggota
-        User::create([
-            'no_anggota' => 'YUPIR123',
-            'nama' => 'Gulali Ijo',
-            'asal_komda' => 'Kijang Selatan',
-            'level' => 'anggota',
-            'status_keaktifan' => true
-        ]);
-
-         // Contoh Anggota
-         User::create([
-            'no_anggota' => 'JAPRI123',
-            'nama' => 'Gulali Kuning',
-            'asal_komda' => 'Kijang Selatan',
-            'level' => 'anggota',
-            'status_keaktifan' => false
-        ]);
-
         // Contoh Dewan Kehormatan
         User::create([
             'no_anggota' => 'DEWAN123',
