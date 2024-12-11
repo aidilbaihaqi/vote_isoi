@@ -21,6 +21,7 @@ return new class extends Migration
             $table->boolean('status_keaktifan');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
+            $table->boolean('has_voted')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

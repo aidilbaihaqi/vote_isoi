@@ -27,6 +27,7 @@ class User extends Authenticatable
         'password',
         'level',
         'status_keaktifan',
+        'has_voted'
     ];
 
     /**

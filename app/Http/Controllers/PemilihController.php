@@ -78,6 +78,10 @@ class PemilihController extends Controller
     // Cari data pemilih berdasarkan ID
     $pemilih = User::findOrFail($id);
 
+    if($pemilih->has_voted) {
+        return redirect()->route('pemilih.index')->with('error', 'Pemilih yang sudah melakukan voting tidak bisa dihapus!');
+    }
+
     // Hapus data pemilih
     $pemilih->delete();
 

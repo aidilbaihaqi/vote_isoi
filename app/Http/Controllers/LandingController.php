@@ -115,6 +115,10 @@ class LandingController extends Controller
             'voted_at' => now()
         ]);
 
+        User::where('id', $data_anggota->id)->update([
+            'has_voted' => true
+        ]);
+
         Session::forget('validated_anggota');
 
         return redirect()->route('landing')->with('success', 'Terimakasih! Suara anda sangat berharga untuk pemilihan ini.');
