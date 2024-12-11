@@ -26,7 +26,8 @@ class PemilihController extends Controller
             'nama' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'asal_komda' => 'required|string|max:255',
-            'status_keaktifan' => 'required'
+            'status_keaktifan' => 'required',
+            'level' => 'required'
         ]);
 
         User::create([
@@ -35,7 +36,7 @@ class PemilihController extends Controller
             'email' => $request->email,
             'asal_komda' => $request->asal_komda,
             'status_keaktifan' => $request->status_keaktifan,
-            'level' => 'anggota',
+            'level' => $request->level,
         ]);
 
         return redirect()->route('pemilih.index')->with('success', 'Data pemilih berhasil ditambahkan!');
@@ -54,7 +55,8 @@ class PemilihController extends Controller
             'nama' => 'required|string|max:255',
             'email' => 'required|email',
             'asal_komda' => 'required|string|max:255',
-            'status_keaktifan' => 'required'
+            'status_keaktifan' => 'required',
+            'level' => 'required'
         ]);
         
         $pemilih = User::findOrFail($id);
@@ -65,6 +67,7 @@ class PemilihController extends Controller
             'email' => $request->email,
             'asal_komda' => $request->asal_komda,
             'status_keaktifan' => $request->status_keaktifan,
+            'level' => $request->level,
         ]);
 
         return redirect()->route('pemilih.index')->with('success', 'Data pemilih berhasil diubah!');

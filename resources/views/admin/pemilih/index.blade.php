@@ -43,6 +43,7 @@
                 <th>Nama</th>
                 <th>Asal Komda</th>
                 <th>Status</th>
+                <th>Keanggotaan</th>
                 <th>Email</th>
                 <th>Aksi</th>
               </tr>
@@ -55,6 +56,13 @@
                   <td>{{ $p->nama }}</td>
                   <td>{{ $p->asal_komda }}</td>
                   <td><a class="btn btn-sm btn-{{ $p->status_keaktifan ? 'primary' : 'danger' }}">{{ $p->status_keaktifan ? 'aktif' : 'tidak aktif' }}</a></td>
+                  <td>
+                    @if ($p->level == 'anggota')
+                        Anggota
+                    @elseif($p->level == 'dewan')
+                        Dewan Kehormatan
+                    @endif
+                  </td>
                   <td>{{ $p->email }}</td>
                   <td>
                     <a class="btn btn-sm btn-inverse-primary" href="{{ route('pemilih.edit', $p->id) }}">Edit</a>

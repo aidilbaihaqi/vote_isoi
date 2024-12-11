@@ -74,6 +74,18 @@
         @enderror
       </div>
 
+      <div class="mb-3" style="width: 50%">
+        <label for="level">Status Keanggotaan</label>
+        <select id="level" name="level" class="form-control @error('level') is-invalid @enderror" required>
+            <option value="" disabled selected>-- Pilih Status Keanggotaan --</option>
+            <option value="anggota">Anggota</option>
+            <option value="dewan">Dewan Kehormatan</option>
+        </select>
+        @error('level')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+      </div>
+
       <div class="mb-3" style="width: 40%">
           <label for="status_keaktifan" class="form-label">Status Keaktifan</label>
           <select name="status_keaktifan" class="form-control @error('status_keaktifan') is-invalid @enderror" required>
