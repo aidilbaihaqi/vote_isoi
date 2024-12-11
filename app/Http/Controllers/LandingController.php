@@ -124,7 +124,7 @@ class LandingController extends Controller
 
         if($cek_device) {
             Session::forget('validated_anggota');
-            return redirect()->route('landing')->with('error', 'Anda hanya diperkenankan untuk memvoting dengan satu device.');
+            return redirect()->route('landing')->with('error', 'Anda hanya diperkenankan untuk memvoting dengan satu device dan satu akun.');
         }
 
         if ($existing_anggota) {
