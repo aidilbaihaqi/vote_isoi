@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             'no_anggota' => 'xxx',
             'nama' => 'Admin 1',
             'asal_komda' => 'xxx',
-            'email' => 'admin-1@voting-isoi.co.id',
+            'email' => 'admin-1@voting-isoi.id',
             'password' => Hash::make('admin1-isoi2024'),
             'level' => 'admin',
             'status_keaktifan' => true
@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
             'no_anggota' => 'xxxx',
             'nama' => 'Admin 2',
             'asal_komda' => 'xxx',
-            'email' => 'admin-2@voting-isoi.co.id',
+            'email' => 'admin-2@voting-isoi.id',
             'password' => Hash::make('admin2-isoi2024'),
             'level' => 'admin',
             'status_keaktifan' => true
