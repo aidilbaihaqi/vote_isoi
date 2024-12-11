@@ -16,12 +16,32 @@
             <h3 class="font-weight-bold">Data Riwayat Pemilihan</h3>
             <h6 class="font-weight-normal mb-0">Berikut data-data riwayat pemilihan.</h6>
           </div>
+          <div class="col-12 col-xl-4">
+            <div class="justify-content-end d-flex">
+             <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+               <form action="{{ route('clearData') }}" method="post">
+                @csrf
+                <button type="submit" class="btn btn-sm btn-primary" onclick="confirm('Apakah anda yakin ingin menghapus seluruh data log pemilihan?')">Clear Data</button>
+               </form>
+             </div>
+            </div>
+           </div>
         </div>
       </div>
     </div>
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Data Riwayat Pemilihan</h4>
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="table-responsive">
           <table id="dataRiwayatPemilihan" class="table table-hover display">
             <thead>

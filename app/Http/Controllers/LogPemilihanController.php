@@ -14,4 +14,10 @@ class LogPemilihanController extends Controller
             'data' => $data
         ]);
     }
+    public function clearData()
+    {
+        $data = LogPemilihan::truncate();
+
+        return redirect()->route('logpemilihan.index')->with(['success' => 'Seluruh data pemilihan berhasil dihapus!']);
+    }
 }

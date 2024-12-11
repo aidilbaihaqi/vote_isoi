@@ -36,4 +36,5 @@ Route::middleware('checkLogin')->group(function() {
   Route::get('/admin/data-pemilih/{id}', [PemilihController::class, 'destroy'])->name('pemilih.destroy');
   
   Route::get('/admin/log-pemilihan', [LogPemilihanController::class, 'index'])->name('logpemilihan.index');
+  Route::post('/admin/log-pemilihan/clear-data', [LogPemilihanController::class, 'clearData'])->name('clearData');
 });
