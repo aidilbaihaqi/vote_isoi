@@ -88,6 +88,12 @@ class LandingController extends Controller
     public function formAnggota()
     {
         $data_anggota = Session::get('validated_anggota');
+
+        if (!$data_anggota->status_keaktifan) {
+            Session::forget('validated_anggota');
+            return redirect()->route('landing')->with('error', 'Status keanggotaan anda tidak aktif. Anda tidak bisa melakukan voting');
+        }
+
         return view('anggota.form', [
             'data_anggota' => $data_anggota
         ]);
