@@ -49,5 +49,7 @@ class DatabaseSeeder extends Seeder
             'level' => 'dewan',
             'status_keaktifan' => true
         ]);
+
+        $this->call(AnggotaSeeder::class);
     }
 }
