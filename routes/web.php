@@ -7,6 +7,11 @@ use App\Http\Controllers\LogPemilihanController;
 use App\Http\Controllers\PemilihController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/getmacs', function(){
+  $macs = shell_exec('getmac');
+  dd($macs);
+});
+
 // Landing Page
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::post('/validate-anggota', [LandingController::class, 'validatedAnggota'])->name('validate.anggota');
