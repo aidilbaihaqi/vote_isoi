@@ -7,12 +7,6 @@ use App\Http\Controllers\LogPemilihanController;
 use App\Http\Controllers\PemilihController;
 use Illuminate\Support\Facades\Route;
 
-// Generate key
-Route::get('/generate-key', function() {
-  $key = \Illuminate\Support\Str::random(32);
-  return response($key);
-});
-
 // Landing Page
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::post('/validate-anggota', [LandingController::class, 'validatedAnggota'])->name('validate.anggota');
