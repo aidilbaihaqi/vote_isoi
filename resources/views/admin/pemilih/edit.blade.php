@@ -42,7 +42,7 @@
         <label for="asal_komda">Pilih Asal Komda:</label>
         <select id="asal_komda" name="asal_komda" class="form-control @error('asal_komda') is-invalid @enderror">
           <option value="" disabled>-- Pilih Asal Komda --</option>
-          @foreach(['DKI Jakarta', 'Pekanbaru', 'Manado', 'Makassar', 'Bogor', 'Bandung', 'Yogyakarta', 'Surabaya', 'Ambon', 'Denpasar', 'Semarang', 'Serang', 'Malang', 'Mataram', 'Lampung', 'Palembang', 'Banda Aceh', 'Samarinda', 'Bangka Belitung', 'Luar Negeri', 'Banjarmasin', 'Kendari', 'Tanjungpinang', 'Manokwari', 'Kupang', 'Bengkulu'] as $komda)
+          @foreach(['Anggota Kehormatan','Pontianak','DKI Jakarta', 'Pekanbaru', 'Manado', 'Makassar', 'Bogor', 'Bandung', 'Yogyakarta', 'Surabaya', 'Ambon', 'Denpasar', 'Semarang', 'Serang', 'Malang', 'Mataram', 'Lampung', 'Palembang', 'Banda Aceh', 'Samarinda', 'Bangka Belitung', 'Luar Negeri', 'Banjarmasin', 'Kendari', 'Tanjungpinang', 'Manokwari', 'Kupang', 'Bengkulu'] as $komda)
               <option value="{{ $komda }}" {{ $pemilih->asal_komda == $komda ? 'selected' : '' }}>{{ $komda }}</option>
           @endforeach
       </select>
