@@ -51,7 +51,6 @@
                 <th>Pilihan</th>
                 <th>IP Address</th>
                 <th>User Agent</th>
-                <th>Mac Address</th>
                 <th>Voted At</th>
               </tr>
             </thead>
@@ -63,7 +62,6 @@
                   <td>{{ $p->pilihan }}</td>
                   <td>{{ $p->ip_address }}</td>
                   <td>{{ $p->user_agent }}</td>
-                  <th>{{ $p->mac_address }}</th>
                   <td>{{ $p->created_at }}</td>
                 </tr>
               @endforeach
