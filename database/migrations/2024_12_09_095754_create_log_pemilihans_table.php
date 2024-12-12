@@ -17,7 +17,6 @@ return new class extends Migration
             $table->integer('pilihan');
             $table->string('ip_address');
             $table->string('user_agent');
-            $table->text('mac_address');
             $table->date('voted_at');
             $table->timestamps();
         });
