@@ -53,6 +53,16 @@ class LandingController extends Controller
             'no_anggota'=>'required'
         ]);
 
+        // Identitas perangkat
+        $ipAddress = $request->ip();
+        $userAgent = $request->header('User-Agent');
+        $cek_log = LogPemilihan::where('ip_address',$ipAddress)->where('user_agent',$userAgent)->first();
+
+        if($cek_log)
+        {
+            return redirect()->route('landing')->with(['error' => 'Anda hanya dapat melakukan voting satu kali.']);
+        }
+
         $anggota = User::with('pemilihan')->where('no_anggota', $request->no_anggota)->where('level', 'anggota')->first();
 
         if(!$anggota) 
@@ -73,6 +83,15 @@ class LandingController extends Controller
             'email' => 'required'
         ]);
 
+        // Identitas perangkat
+        $ipAddress = $request->ip();
+        $userAgent = $request->header('User-Agent');
+        $cek_log = LogPemilihan::where('ip_address',$ipAddress)->where('user_agent',$userAgent)->first();
+
+        if($cek_log)
+        {
+            return redirect()->route('landing')->with(['error' => 'Anda hanya dapat melakukan voting satu kali.']);
+        }
 
         $anggota = User::with('pemilihan')->where('email', $request->email)->where('level', 'dewan')->first();
 
