@@ -91,6 +91,12 @@ class LandingController extends Controller
     {
         $data_anggota = Session::get('validated_anggota');
         $cek_device = Session::get('cek_device');
+        $existing_anggota = LogPemilihan::where('pemilih_id', $data_anggota->id)->first();
+
+        if ($existing_anggota) {
+            Session::forget('validated_anggota');
+            return redirect()->route('landing')->with('error', 'Anda sudah pernah melakukan voting. Hanya diperbolehkan voting satu kali.');
+        }
 
         if($cek_device) {
             Session::forget('validated_anggota');
